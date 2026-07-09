@@ -40,6 +40,7 @@ const ProductCard = ({ product }) => {
       <div className="bg-beige-50 border border-beige-200 rounded-2xl overflow-hidden hover:border-olive-300 hover:shadow-md transition-all">
         {/* image */}
         <div className="aspect-square bg-beige-100 overflow-hidden relative">
+          {console.log("image:", primaryImage?.image)}
           {primaryImage ? (
             <img
               src={primaryImage.image}
@@ -51,7 +52,6 @@ const ProductCard = ({ product }) => {
               No image
             </div>
           )}
-
           {/* add to cart button on hover */}
           {product.stock > 0 && (
             <button
@@ -63,7 +63,6 @@ const ProductCard = ({ product }) => {
               {adding ? "Adding..." : "Add to Cart"}
             </button>
           )}
-
           {product.stock === 0 && (
             <div className="absolute inset-0 bg-white/60 flex items-center justify-center">
               <span className="text-xs text-beige-500 bg-white px-3 py-1 rounded-full border border-beige-200">
