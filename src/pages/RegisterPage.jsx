@@ -30,6 +30,9 @@ const RegisterPage = () => {
         username: formData.username,
         password: formData.password,
       });
+      // save tokens FIRST before fetching profile
+      localStorage.setItem("access_token", loginRes.data.access);
+      localStorage.setItem("refresh_token", loginRes.data.refresh);
       const profileRes = await getProfile();
       loginUser(loginRes.data, profileRes.data);
       toast.success("Welcome to Pura Skin!");

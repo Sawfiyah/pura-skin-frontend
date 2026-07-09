@@ -40,7 +40,6 @@ const ProductCard = ({ product }) => {
       <div className="bg-beige-50 border border-beige-200 rounded-2xl overflow-hidden hover:border-olive-300 hover:shadow-md transition-all">
         {/* image */}
         <div className="aspect-square bg-beige-100 overflow-hidden relative">
-          {console.log("image:", primaryImage?.image)}
           {primaryImage ? (
             <img
               src={primaryImage.image}
@@ -57,7 +56,7 @@ const ProductCard = ({ product }) => {
             <button
               onClick={handleAddToCart}
               disabled={adding}
-              className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 hover:bg-olive-500 hover:text-white text-olive-600 text-xs px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap disabled:opacity-60"
+              className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 hover:bg-olive-500 hover:text-white text-olive-600 text-xs px-4 py-2 rounded-full transition-all shadow-sm flex items-center gap-1.5 whitespace-nowrap disabled:opacity-60 opacity-100 md:opacity-0 md:group-hover:opacity-100"
             >
               <ShoppingBag size={13} />
               {adding ? "Adding..." : "Add to Cart"}
