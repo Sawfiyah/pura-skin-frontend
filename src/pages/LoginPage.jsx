@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { login, getProfile } from "../api/auth";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
@@ -10,6 +10,8 @@ const LoginPage = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect") || "/";
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,7 +35,7 @@ const LoginPage = () => {
       loginUser(res.data, profileRes.data);
 
       toast.success("Welcome back!");
-      navigate("/");
+      navigate(decodeURIComponent(redirect));
     } catch (err) {
       const data = err.response?.data;
 

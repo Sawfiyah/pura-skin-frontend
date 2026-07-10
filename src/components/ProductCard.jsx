@@ -19,7 +19,9 @@ const ProductCard = ({ product }) => {
     e.preventDefault();
     if (!user) {
       toast.error("Please sign in to add items to cart");
-      navigate("/login");
+      navigate(
+        `/login?redirect=${encodeURIComponent(window.location.pathname + window.location.search)}`,
+      );
       return;
     }
     if (product.stock === 0) return;
