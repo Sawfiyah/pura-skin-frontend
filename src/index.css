@@ -9,27 +9,6 @@
   --font-display: "Playfair Display", Georgia, serif;
   --font-body: "Lato", system-ui, sans-serif;
 
-  /* your existing colors stay here */
-  --color-beige-50: #fdf8f3;
-  ...
-}
-
-/* apply globally */
-body {
-  font-family: var(--font-body);
-  font-weight: 400;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-}
-
-@theme {
   --color-beige-50: #fdf8f3;
   --color-beige-100: #f5ede0;
   --color-beige-200: #ecdcc8;
@@ -174,9 +153,19 @@ h6 {
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
   }
 
   html {
     @apply font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
   }
 }
