@@ -4,12 +4,13 @@ import { getProducts } from "../api/products";
 import ProductCard from "../components/ProductCard";
 import { useShop } from "../context/ShopContext";
 import { Leaf, Droplets, Shield, Sparkles } from "lucide-react";
+import background from "../assets/background1.jpg";
 
 const values = [
-  { icon: <Leaf size={20} />, label: "Clean Ingredients" },
-  { icon: <Droplets size={20} />, label: "Deep Hydration" },
-  { icon: <Shield size={20} />, label: "Dermatologist Tested" },
-  { icon: <Sparkles size={20} />, label: "Visible Results" },
+  { icon: <Leaf size={20} />, label: "Curated Brands" },
+  { icon: <Droplets size={20} />, label: "Authentic Products" },
+  { icon: <Shield size={20} />, label: "Secure Shopping" },
+  { icon: <Sparkles size={20} />, label: "Expert Picks" },
 ];
 
 const HomePage = () => {
@@ -34,31 +35,47 @@ const HomePage = () => {
   return (
     <div className="bg-cream min-h-screen">
       {/* hero */}
-      <section className="bg-beige-100 px-6 py-24 text-center">
-        <p className="text-olive-500 text-sm tracking-widest uppercase mb-3">
-          Natural Skincare
-        </p>
-        <h1 className="text-4xl md:text-6xl font-semibold text-beige-800 mb-6 leading-tight">
-          Your skin deserves <br />
-          <span className="text-olive-500">the purest care.</span>
-        </h1>
-        <p className="text-beige-600 max-w-md mx-auto mb-8 text-sm leading-relaxed">
-          Pura Skin offers clean, effective skincare formulated with nature's
-          finest ingredients. Glow starts here.
-        </p>
-        <div className="flex items-center justify-center gap-4">
-          <Link
-            to="/products"
-            className="bg-olive-500 hover:bg-olive-600 text-white px-8 py-3 rounded-full text-sm transition-colors"
+      <section className="relative h-[90vh] min-h-[580px] flex items-center justify-center overflow-hidden">
+        {/* background image */}
+        <img
+          src={background}
+          alt="Skincare hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* content */}
+        <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
+          <p className="text-beige-200 text-xs tracking-[0.3em] uppercase mb-5">
+            Premium Skincare Retail
+          </p>
+          <h1
+            className="text-4xl md:text-6xl font-semibold text-white mb-6 leading-tight"
+            style={{ fontFamily: "Playfair Display, serif" }}
           >
-            Shop Now
-          </Link>
-          <Link
-            to="/products"
-            className="border border-beige-400 text-beige-700 hover:border-olive-400 hover:text-olive-500 px-8 py-3 rounded-full text-sm transition-colors"
-          >
-            Explore Products
-          </Link>
+            The best brands, <br />
+            <span className="text-beige-300 italic">all in one place.</span>
+          </h1>
+          <p className="text-beige-200 max-w-md mx-auto mb-10 text-sm leading-relaxed">
+            Pura Skin brings you the world's most trusted skincare brands,
+            carefully curated for every skin type and concern.
+          </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <Link
+              to="/products"
+              className="bg-white hover:bg-beige-100 text-olive-700 px-8 py-3 rounded-full text-sm font-medium transition-colors"
+            >
+              Shop Now
+            </Link>
+            <Link
+              to="/products"
+              className="border border-white/60 text-white hover:bg-white/10 px-8 py-3 rounded-full text-sm transition-colors"
+            >
+              Explore Products
+            </Link>
+          </div>
         </div>
       </section>
 

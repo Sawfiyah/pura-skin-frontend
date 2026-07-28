@@ -9,8 +9,8 @@ const Footer = () => {
           <div className="md:col-span-1">
             <img src="/pura-skin.jpg" style={{ height: "50px" }} />
             <p className="text-sm text-beige-500 leading-relaxed mb-5">
-              Clean, effective skincare formulated with nature's finest
-              ingredients. Your glow starts here.
+              Your one-stop destination for premium skincare. We bring the
+              world's best brands straight to your door.
             </p>
             <div className="flex items-center gap-4">
               <a
